@@ -9,23 +9,24 @@ import java.util.Map;
  */
 public class FirstUnique {
 
-    private LinkedHashMap<Integer, Integer> hashMap = new LinkedHashMap<>();
+    private LinkedHashMap<Integer, Integer> hashMap;
 
     public FirstUnique(int[] numbers) {
-        for (int i : numbers){
-            hashMap.put(i, hashMap.getOrDefault(i, 0)+1);
+        hashMap = new LinkedHashMap<>();
+        for (int i : numbers) {
+            hashMap.put(i, hashMap.getOrDefault(i, 0) + 1);
         }
     }
 
     public int showFirstUnique() {
-        for(Map.Entry<Integer, Integer> entry: hashMap.entrySet()){
-            if(entry.getValue()==1)
+        for (Map.Entry<Integer, Integer> entry : hashMap.entrySet()) {
+            if (entry.getValue() == 1)
                 return entry.getKey();
         }
         return -1;
     }
 
     public void add(int value) {
-        hashMap.put(value, hashMap.getOrDefault(value, 0)+1);
+        hashMap.put(value, hashMap.getOrDefault(value, 0) + 1);
     }
 }
